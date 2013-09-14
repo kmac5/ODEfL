@@ -1,0 +1,22 @@
+Compiling ODEfL v0.4.X
+----------------------
+
+I'm using VC++ 2002, but I'm fairly sure the files will compile just fine with VC++ 2003 and 2005.
+
+Download the ODE v0.11 binary (or build from source if you're adventurous) and unzip it to C:\Program Files\ode-0.11
+
+You'll also need some of the open source helper libraries from Newtek:
+ftp://ftp.newtek.com/products/LightWave/SDK/OpenSourceTools.zip
+
+New to v0.4.X
+At the moment you need to copy several files from the SDK scenescan example (.\SDK\sample\Layout\Generic\scenscan) to the ODEfL project folder:
+	scenescan.h objectdb.c objectdb.h vecmat.c vecmat.h
+
+My Lightwave folder is C:\Program Files\Newtek\LightWave_3D_9 and the ODEfL source sits in C:\Program Files\Newtek\LightWave_3D_9\Source\ODE.  If you're using different paths just modify the solution to fit.  Copy ode.cpp, image1.h, ode.sln and ode.vcproj to the ODE folder and compile.
+
+If you've not compiled a Lightwave plugin before, know that you need to build server.lib for your system.  It's easy, just take a look at the LWSDK section on compiling.
+
+Good luck!
+
+-Kevin
+kevinmacphail@yahoo.com

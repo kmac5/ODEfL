@@ -1,0 +1,439 @@
+LWSC
+3
+
+RenderRangeType 0
+FirstFrame 1
+LastFrame 60
+FrameStep 1
+RenderRangeArbitrary 1-60
+PreviewFirstFrame 0
+PreviewLastFrame 90
+PreviewFrameStep 1
+CurrentFrame 0
+FramesPerSecond 30
+
+LoadObjectLayer 1 Objects/box.lwo
+ShowObject 7 3
+Group 0
+ObjectMotion
+NumChannels 9
+Channel 0
+{ Envelope
+  2
+  Key -1 0 0 0 0 0 0 0.99916736053288924 0
+  Key 0 0.33333333333333331 0 0 0 0 0.99916736053288924 0 0
+  Behaviors 1 1
+}
+Channel 1
+{ Envelope
+  2
+  Key 0.25 0 0 0 0 0 0 0 0
+  Key 0.25 0.33333333333333331 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+Channel 2
+{ Envelope
+  2
+  Key -0.10781535506248474 0 0 0 0 0 0 0.10772558374269915 0
+  Key 0 0.33333333333333331 0 0 0 0 0.10772558374269915 0 0
+  Behaviors 1 1
+}
+Channel 3
+{ Envelope
+  2
+  Key 0 0 0 0 0 0 0 0 0
+  Key 0 0.33333333333333331 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+Channel 4
+{ Envelope
+  2
+  Key 0 0 0 0 0 0 0 0 0
+  Key 0 0.33333333333333331 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+Channel 5
+{ Envelope
+  2
+  Key 0 0 0 0 0 0 0 0 0
+  Key 0 0.33333333333333331 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+Channel 6
+{ Envelope
+  2
+  Key 1 0 0 0 0 0 0 0 0
+  Key 1 0.33333333333333331 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+Channel 7
+{ Envelope
+  2
+  Key 1 0 0 0 0 0 0 0 0
+  Key 1 0.33333333333333331 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+Channel 8
+{ Envelope
+  2
+  Key 1 0 0 0 0 0 0 0 0
+  Key 1 0.33333333333333331 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+
+PathAlignLookAhead 0.033
+PathAlignMaxLookSteps 10
+PathAlignReliableDist 0.001
+Plugin DisplacementHandler 1 ODE_Displace
+1
+1
+0
+0 1.75 0
+0 1.625 0
+0 2.3125 0
+0 1.035 -1.5881868e-023
+-1.5881868e-023 1.5749999 -1.5881868e-023
+-1.5881868e-023 1.4499999 3140.9453
+0 -9.8100004 0
+EndPlugin
+NodeDisplacement 0
+{ Nodal_Block
+  { Root
+    Location 0 0
+    Zoom 1
+    Disabled 1
+  }
+  Version 1
+  { Nodes
+    Server "Displacement"
+    { Tag
+      RealName "Displacement"
+      Name "Displacement"
+      Coordinates -10 -10
+      Mode 1
+      { Data
+      }
+      Preview ""
+      Comment ""
+    }
+  }
+  { Connections
+    NodeName "Displacement"
+    InputName "Input"
+    InputNodeName ""
+    InputOutputName ""
+  }
+}
+NodeDisplacementOrder 0
+ShadowOptions 7
+
+LoadObjectLayer 1 Objects/ball.lwo
+ShowObject 7 3
+Group 0
+ObjectMotion
+NumChannels 9
+Channel 0
+{ Envelope
+  1
+  Key 1.7237354516983041 0 0 0 0 0 0 -1.1781255260260348 0
+  Behaviors 1 1
+}
+Channel 1
+{ Envelope
+  1
+  Key 0.83051419258117742 0 0 0 0 0 0 1.1092986091175578e-016 0
+  Behaviors 1 1
+}
+Channel 2
+{ Envelope
+  1
+  Key 0 0 0 0 0 0 0 -0.00016852095902223973 0
+  Behaviors 1 1
+}
+Channel 3
+{ Envelope
+  1
+  Key 0 0 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+Channel 4
+{ Envelope
+  1
+  Key 0 0 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+Channel 5
+{ Envelope
+  1
+  Key 0 0 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+Channel 6
+{ Envelope
+  1
+  Key 1 0 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+Channel 7
+{ Envelope
+  1
+  Key 1 0 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+Channel 8
+{ Envelope
+  1
+  Key 1 0 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+
+PathAlignLookAhead 0.033
+PathAlignMaxLookSteps 10
+PathAlignReliableDist 0.001
+Plugin DisplacementHandler 1 ODE_Displace
+1
+0
+0
+0 1.75 0
+0 1.625 0
+0 2.3125 89128.961
+89128.961 1.035 -1.5881868e-023
+-1.5881868e-023 1.5749999 0
+0 1.875 3140.9453
+0 -9.8100004 0
+EndPlugin
+NodeDisplacement 0
+{ Nodal_Block
+  { Root
+    Location 0 0
+    Zoom 1
+    Disabled 1
+  }
+  Version 1
+  { Nodes
+    Server "Displacement"
+    { Tag
+      RealName "Displacement"
+      Name "Displacement"
+      Coordinates -10 -10
+      Mode 1
+      { Data
+      }
+      Preview ""
+      Comment ""
+    }
+  }
+  { Connections
+    NodeName "Displacement"
+    InputName "Input"
+    InputNodeName ""
+    InputOutputName ""
+  }
+}
+NodeDisplacementOrder 0
+ShadowOptions 7
+
+AmbientColor 1 1 1
+AmbientIntensity 0.05
+
+AddLight
+LightName Light
+ShowLight 1 5
+LightMotion
+NumChannels 9
+Channel 0
+{ Envelope
+  1
+  Key -2 0 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+Channel 1
+{ Envelope
+  1
+  Key 2 0 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+Channel 2
+{ Envelope
+  1
+  Key -2 0 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+Channel 3
+{ Envelope
+  1
+  Key 0.78539813000000003 0 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+Channel 4
+{ Envelope
+  1
+  Key 0.61086524000000064 0 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+Channel 5
+{ Envelope
+  1
+  Key 0 0 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+Channel 6
+{ Envelope
+  1
+  Key 1 0 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+Channel 7
+{ Envelope
+  1
+  Key 1 0 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+Channel 8
+{ Envelope
+  1
+  Key 1 0 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+
+PathAlignLookAhead 0.033
+PathAlignMaxLookSteps 10
+PathAlignReliableDist 0.001
+LightColor 1 1 1
+LightIntensity 1
+AffectCaustics 1
+LightType 0
+ShadowType 1
+ShadowColor 0 0 0
+
+AddCamera
+CameraName Camera
+ShowCamera 1 2
+CameraMotion
+NumChannels 6
+Channel 0
+{ Envelope
+  1
+  Key 0 0 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+Channel 1
+{ Envelope
+  1
+  Key 0 0 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+Channel 2
+{ Envelope
+  1
+  Key -1.53 0 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+Channel 3
+{ Envelope
+  1
+  Key 0 0 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+Channel 4
+{ Envelope
+  1
+  Key 0 0 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+Channel 5
+{ Envelope
+  1
+  Key 0 0 0 0 0 0 0 0 0
+  Behaviors 1 1
+}
+
+PathAlignLookAhead 0.033
+PathAlignMaxLookSteps 10
+PathAlignReliableDist 0.001
+ZoomFactor 3.2
+ResolutionMultiplier 1.0
+FrameSize 640 480
+PixelAspect 1
+MaskPosition 0 0 640 480
+MotionBlur 0
+FieldRendering 0
+ApertureHeight 0.015
+UseGlobalResolution 0
+UseGlobalMask 0
+UseGlobalBlur 0
+Plugin CameraHandler 1 Classic
+EndPlugin
+
+GlobalFrameSize 640 480
+GlobalMultiplier 1.0
+GlobalFieldRendering 0
+GlobalMotionBlur 0
+GlobalMaskPosition 0 0 640 480
+GlobalFilmHeight 0.015
+GlobalPixelAspect 1
+
+Antialiasing 0
+AntiAliasingLevel -1
+ReconstructionFilter 0
+AdaptiveSampling 0
+
+SolidBackdrop 1
+BackdropColor 0 0 0
+ZenithColor 0 0.1569 0.3137
+SkyColor 0.4706 0.7059 0.9412
+GroundColor 0.1961 0.1569 0.1176
+NadirColor 0.3922 0.3137 0.2353
+FogType 0
+FogMinDistance 0
+FogMaxDistance 1
+FogMinAmount 0
+FogMaxAmount 1
+FogColor 0.5098 0.5098 0.549
+BackdropFog 0
+DitherIntensity 1
+AnimatedDither 0
+
+RenderMode 2
+RayTraceEffects 0
+DepthBufferAA 0
+RayRecursionLimit 16
+DataOverlayLabel  
+SaveRGB 0
+SaveAlpha 0
+
+ViewConfiguration 1
+DefineView 0
+ViewType 7
+ViewLevel 5
+ViewAimpoint 1.110253 0.6535 -0.3766903
+ViewRotation 34.19994 11.89995 0
+ViewZoomFactor 0.5433675
+DefineView 1
+ViewType 3
+ViewLevel 5
+ViewAimpoint 2.3085 0.7319999 0
+ViewZoomFactor 0.4089513
+
+GridNumber 20
+GridSize 0.1
+CameraViewBG 0
+ShowMotionPath 1
+ShowFogRadius 0
+ShowFogEffect 0
+ShowSafeAreas 0
+ShowFieldChart 0
+OverlayColor_fv 0 0 0
+MeshBackgroundGroup 1
+
+CurrentObject 0
+CurrentLight 0
+CurrentCamera 0
+GraphEditorData
+{ GraphEd_Favorites
+}
+{ GE_Expression_Lib
+  1
+}
+ImageEditorData
+NumberOfClips 0
