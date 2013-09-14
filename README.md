@@ -7,8 +7,14 @@ Add ode.p to Lightwave and 3 plug-ins should install: ODEGeneric and ODEDisplace
 
 Release Notes
 =============
+ODEfL v0.4.4 04/27/08
+- Plug-in now named odefl.p
+- Removed debug info from public build
+- Fixed bug in gravity option "Disable until Collision" which caused objects to activate when other objects were "close" but had not actually collided.
+
+
 ODEfL v0.4.3 04/07/08
-- Added enable/disable setting for the grondplane
+- Added enable/disable setting for the ground plane
 - Added gravity options for ode objects
 
 
