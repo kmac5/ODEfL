@@ -4,7 +4,7 @@ odefl.cpp
 
 This is "ODE for Lightwave"
 
-(C)2008 Kevin MacPhail
+(C)2009 Kevin MacPhail
 
 ChangeLog:
 See the readme.txt
@@ -455,7 +455,7 @@ static LWPanelID get_panel( LWLayoutGeneric *local )
    LWValue ival = { LWT_INTEGER };
    int i, w;
 
-   if( !( panel = PAN_CREATE( panf, "ODEfL v0.4.3 BETA" )))
+   if( !( panel = PAN_CREATE( panf, "ODEfL v0.4.4 BETA" )))
       return NULL;
 
    PAN_SETW( panf, panel, PAN_WIDTH + 20);
@@ -584,7 +584,7 @@ void ODE_event( LWControl *ctrl, LWLayoutGeneric *local)
 	int i, j; // current frame - these are used in several places not as frames - clean it up
 	int frameStart, frameEnd, framesPerSecond;
 	int totalFrames;
-	int num = 0;odefl.cpp
+	int num = 0;
 	int numC = 0;
 	int count = 0;
 	int currentVertex = 0;
@@ -675,6 +675,8 @@ void ODE_event( LWControl *ctrl, LWLayoutGeneric *local)
 	contactgroup = dJointGroupCreate (0);
 	dWorldSetGravity (world, gravity[0], gravity[2], gravity[1]);
 	dWorldSetCFM (world,1e-5);
+	//dWorldSetCFM (world,1);
+	//dWorldSetERP (world, 0.8);
 	dWorldSetAutoDisableFlag (world,1);
 	dWorldSetContactMaxCorrectingVel (world,0.1);
 	dWorldSetContactSurfaceLayer (world,0.001);
@@ -1031,6 +1033,13 @@ void ODE_event( LWControl *ctrl, LWLayoutGeneric *local)
 	//dJointAttach(foo3,obj[2].body,0);
 	//dJointSetHingeAnchor (foo3, 0.0, 0.0, 5.5);
 	//dJointSetHingeAxis (foo3, 0.0, 1.0, 0.0);
+
+	// Test #3
+	//foo = dJointCreateHinge(world,0);
+	//dJointAttach(foo,obj[0].body,0);
+	//dJointSetHingeAnchor (foo, 0.0, -0.04, 0.31);
+	//dJointSetHingeAxis (foo, 1.0, 0.0, 0.0);
+
 	////////////////
 	// Joint Test //
 	////////////////
@@ -1081,6 +1090,8 @@ void ODE_event( LWControl *ctrl, LWLayoutGeneric *local)
 			//bob = stepSize/stepSizeMultiplier;
 			dSpaceCollide (space,0,&nearCallback);
 			dWorldQuickStep (world,stepSize/stepSizeMultiplier);
+			//dWorldStep (world,stepSize/stepSizeMultiplier);
+			//dWorldSetQuickStepNumIterations (world, 20);
 		}
 		
 		if (DEBUG) {
@@ -1185,6 +1196,7 @@ void ODE_event( LWControl *ctrl, LWLayoutGeneric *local)
 	dJointGroupDestroy (contactgroup);
 	dSpaceDestroy (space);
 	dWorldDestroy (world);
+	dCloseODE();
 
 }
 
@@ -1209,7 +1221,6 @@ static void nearCallback (void *data, dGeomID o1, dGeomID o2)
 	dReal sumCFM = 0;
 	dReal sumERP = 0;
 	dReal sumMU = 0;
-	int useMU = 0;
 	dReal geomIDO1Bounce = 0.0;
 	dReal geomIDO2Bounce = 0.0;
 	dReal geomIDO1BounceVelocity = 0.0;
@@ -1220,6 +1231,7 @@ static void nearCallback (void *data, dGeomID o1, dGeomID o2)
 	dReal geomIDO2ERP = 0.0;
 	dReal geomIDO1MU = 0.0;
 	dReal geomIDO2MU = 0.0;
+	int useMU = 0;
 	int geomIDO1UMU = 0;
 	int geomIDO2UMU = 0;
 	int geomIDO1GRAVITY = 0;
@@ -1271,18 +1283,6 @@ static void nearCallback (void *data, dGeomID o1, dGeomID o2)
   dBodyID b2 = dGeomGetBody(o2);
   if (b1 && b2 && dAreConnectedExcluding (b1,b2,dJointTypeContact)) return;
 
-
-  ///////////////
-  // Collision //
-  ///////////////
-
-  if ((dGeomGetClass(o1) != dPlaneClass) && (geomIDO1GRAVITY == DISABLED_UNTIL_COLLISION))
-  //if (dGeomGetClass(o1) != dPlaneClass)
-      dBodySetGravityMode(b1,1);
-  if ((dGeomGetClass(o2) != dPlaneClass) && (geomIDO2GRAVITY == DISABLED_UNTIL_COLLISION))
-  //if (dGeomGetClass(o2) != dPlaneClass)
-	  dBodySetGravityMode(b2,1);
-
   // Generate the contacts
   dContact contact[MAX_CONTACTS];   // up to MAX_CONTACTS contacts per box-box
   for (i=0; i<MAX_CONTACTS; i++) {
@@ -1298,14 +1298,18 @@ static void nearCallback (void *data, dGeomID o1, dGeomID o2)
 	contact[i].surface.soft_erp = sumERP;
   }
 
-  if (int numc = dCollide (o1,o2,MAX_CONTACTS,&contact[0].geom,sizeof(dContact)))
+  if (int numc = dCollide (o1,o2,MAX_CONTACTS,&contact[0].geom,sizeof(dContact))) // Collision!
   {
-	dMatrix3 RI;
-    dRSetIdentity (RI);
-	const dReal ss[3] = {0.02,0.02,0.02};
+	//dMatrix3 RI;
+    //dRSetIdentity (RI);
+	//const dReal ss[3] = {0.02,0.02,0.02};
 	for (i=0; i<numc; i++) {
 		dJointID c = dJointCreateContact (world,contactgroup,contact+i);
 		dJointAttach (c,b1,b2);
+	if ((dGeomGetClass(o1) != dPlaneClass) && (geomIDO1GRAVITY == DISABLED_UNTIL_COLLISION))
+		dBodySetGravityMode(b1,1);
+	if ((dGeomGetClass(o2) != dPlaneClass) && (geomIDO2GRAVITY == DISABLED_UNTIL_COLLISION))
+		dBodySetGravityMode(b2,1);
 	}
   }
 }
@@ -2291,7 +2295,7 @@ the instance data.
 XCALL_( static const char * )
 Describe( ODEDisplaceData *dat )
 {
-	sprintf( dat->desc, " ODEfL v0.4.3 BETA", NULL );
+	sprintf( dat->desc, " ODEfL v0.4.4 BETA", NULL );
    return dat->desc;
 }
 

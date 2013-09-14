@@ -21,6 +21,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				OptimizeForProcessor="0"
 				AdditionalIncludeDirectories="&quot;C:\Program Files\ode-0.9\include&quot;;&quot;C:\Program Files\Newtek\LightWave_3D_9\SDK\include&quot;;&quot;C:\Program Files\Newtek\LightWave_3D_9\SDK\common_library&quot;;&quot;C:\Program Files\Newtek\LightWave_3D_9\SDK\layout_library&quot;"
 				PreprocessorDefinitions="_X86_;_MSWIN;_DEBUG;_WINDOWS;_USRDLL;ODE_EXPORTS"
 				BasicRuntimeChecks="3"
@@ -40,15 +41,19 @@
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
 				AdditionalDependencies="odbc32.lib odbccp32.lib ode.lib"
-				OutputFile="./ode.p"
+				ShowProgress="2"
+				OutputFile="./odefl.p"
 				LinkIncremental="2"
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories="&quot;C:\Program Files\ode-0.9\lib\releaselib&quot;"
-				IgnoreDefaultLibraryNames="libcd.lib,libcmtd.lib"
+				AdditionalLibraryDirectories="&quot;C:\Program Files\ode-0.9\lib\debuglib&quot;"
+				IgnoreAllDefaultLibraries="FALSE"
+				IgnoreDefaultLibraryNames="libc.lib,libcd.lib,libcmt.lib"
 				ModuleDefinitionFile="..\..\SDK\source\serv.def"
 				GenerateDebugInformation="TRUE"
-				ProgramDatabaseFile=".\Debug/ode.pdb"
-				ImportLibrary=".\Debug/ode.lib"/>
+				ProgramDatabaseFile=".\Debug/odefl.pdb"
+				StackReserveSize="0"
+				StackCommitSize="2000000"
+				ImportLibrary=".\Debug/odefl.lib"/>
 			<Tool
 				Name="VCMIDLTool"
 				PreprocessorDefinitions="_DEBUG"
@@ -82,7 +87,8 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="&quot;C:\Program Files\ode-0.9\include&quot;;&quot;C:\Program Files\Newtek\LightWave_3D_9\SDK\include&quot;;&quot;C:\Program Files\Newtek\LightWave_3D_9\SDK\common_library&quot;;&quot;C:\Program Files\Newtek\LightWave_3D_9\SDK\layout_library&quot;"
+				OptimizeForProcessor="2"
+				AdditionalIncludeDirectories="&quot;C:\Program Files\ode-0.11\include&quot;;&quot;C:\Program Files\Newtek\LightWave_3D_9\SDK\include&quot;;&quot;C:\Program Files\Newtek\LightWave_3D_9\SDK\common_library&quot;;&quot;C:\Program Files\Newtek\LightWave_3D_9\SDK\layout_library&quot;"
 				PreprocessorDefinitions="_X86_;_MSWIN;_WINDOWS;_USRDLL;ODE_EXPORTS"
 				StringPooling="TRUE"
 				RuntimeLibrary="0"
@@ -100,16 +106,16 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
-				AdditionalDependencies="odbc32.lib odbccp32.lib ode.lib"
-				OutputFile=".\Release/ODE.p"
+				AdditionalDependencies="odbc32.lib odbccp32.lib ode_single.lib"
+				OutputFile=".\Release/odefl.p"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories="C:\Program Files\ode-0.9\lib\releaselib"
-				IgnoreAllDefaultLibraries="TRUE"
+				AdditionalLibraryDirectories="&quot;C:\Program Files\ode-0.11\lib\releasesinglelib&quot;"
+				IgnoreAllDefaultLibraries="FALSE"
 				IgnoreDefaultLibraryNames="libcd.lib,libcmtd.lib"
 				ModuleDefinitionFile="..\..\SDK\source\serv.def"
 				ProgramDatabaseFile=".\Release/ODE.pdb"
-				ImportLibrary=".\Release/ODE.lib"/>
+				ImportLibrary=".\Release/ODE_SINGLE.lib"/>
 			<Tool
 				Name="VCMIDLTool"
 				PreprocessorDefinitions="NDEBUG"
@@ -156,7 +162,7 @@
 				RelativePath="objectdb.c">
 			</File>
 			<File
-				RelativePath="ode.cpp">
+				RelativePath="odefl.cpp">
 			</File>
 			<File
 				RelativePath="ptsearch.c">
