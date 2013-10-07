@@ -2,7 +2,7 @@
 Quick and Dirty Instructions
 ============================
 
-Add ode.p to Lightwave and 3 plug-ins should install: ODEGeneric and ODEDisplace and a panel for ODEDisplace.  I like to map the generic to alt+o, but that's just me.
+Add odefl.p to Lightwave and 3 plug-ins should install: ODEGeneric and ODEDisplace and a panel for ODEDisplace.  I like to map the generic to alt+o, but that's just me.
 
 
 Release Notes
